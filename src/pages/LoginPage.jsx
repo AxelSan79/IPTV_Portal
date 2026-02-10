@@ -1,11 +1,40 @@
+import { useState } from "react";
 import MainLayout from "../components/layout/MainLayout";
+import LoginForm from "../components/login/LoginForm";
+import { useLogin } from "../hooks/useLogin";
 
 function LoginPage() {
+  const { login, loading } = useLogin();
+
+  const [formData, setFormData] = useState({
+    treatment: "Mr.",
+    firstName: "",
+    lastName: "",
+    email: "",
+    checkIn: "",
+    checkOut: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(formData);
+  };
+
   return (
     <MainLayout>
-      <h1 className="p-6 text-2xl">LoginPage</h1>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="bg-black bg-opacity-70 p-8 rounded-md w-96 text-white">
+          <LoginForm
+            formData={formData}
+            setFormData={setFormData}
+            onSubmit={handleSubmit}
+            loading={loading}
+          />
+        </div>
+      </div>
     </MainLayout>
   );
 }
 
 export default LoginPage;
+
