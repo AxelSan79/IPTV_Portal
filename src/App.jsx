@@ -4,7 +4,6 @@ import DevNav from "./components/common/DevNav";
 function App() {
   return (
     <>
-      <DevNav />
       <AppRouter />
     </>
   );

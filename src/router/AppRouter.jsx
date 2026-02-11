@@ -15,25 +15,26 @@ import SpaPage from "../pages/SpaPage";
 import BillPage from "../pages/BillPage";
 import WeatherPage from "../pages/WeatherPage";
 import CheckOutPage from "../pages/CheckOutPage";
+import ProtectedRoute from "./ProtectedRoute";
 
 function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
-      <Route path="/Home" element={<HomePage />} />
-      <Route path="/TV" element={<LiveTvPage />} />
-      <Route path="/VoD" element={<VodPage />} />
-      <Route path="/VoD/:id" element={<VodAssetPage />} />
-      <Route path="/VoD/:id/watch" element={<VideoPlayerPage />} />
-      <Route path="/Cast" element={<CastPage />} />
-      <Route path="/Language" element={<LanguagePage />} />
-      <Route path="/Services" element={<ServicesPage />} />
-      <Route path="/Services/HotelInfo" element={<InfoPage />} />
-      <Route path="/Services/Restaurant" element={<RestaurantPage />} />
-      <Route path="/Services/Spa" element={<SpaPage />} />
-      <Route path="/Services/Bill" element={<BillPage />} />
-      <Route path="/Services/Weather" element={<WeatherPage />} />
-      <Route path="/Check-Out" element={<CheckOutPage />} />
+      <Route path="/Home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+      <Route path="/TV" element={<ProtectedRoute><LiveTvPage /></ProtectedRoute>} />
+      <Route path="/VoD" element={<ProtectedRoute><VodPage /></ProtectedRoute>} />
+      <Route path="/VoD/:id" element={<ProtectedRoute><VodAssetPage /></ProtectedRoute>} />
+      <Route path="/VoD/:id/watch" element={<ProtectedRoute><VideoPlayerPage /></ProtectedRoute>} />
+      <Route path="/Cast" element={<ProtectedRoute><CastPage /></ProtectedRoute>} />
+      <Route path="/Language" element={<ProtectedRoute><LanguagePage /></ProtectedRoute>} />
+      <Route path="/Services" element={<ProtectedRoute><ServicesPage /></ProtectedRoute>} />
+      <Route path="/Services/HotelInfo" element={<ProtectedRoute><InfoPage /></ProtectedRoute>} />
+      <Route path="/Services/Restaurant" element={<ProtectedRoute><RestaurantPage /></ProtectedRoute>} />
+      <Route path="/Services/Spa" element={<ProtectedRoute><SpaPage /></ProtectedRoute>} />
+      <Route path="/Services/Bill" element={<ProtectedRoute><BillPage /></ProtectedRoute>} />
+      <Route path="/Services/Weather" element={<ProtectedRoute><WeatherPage /></ProtectedRoute>} />
+      <Route path="/Check-Out" element={<ProtectedRoute><CheckOutPage /></ProtectedRoute>} />
     </Routes>
   );
 }

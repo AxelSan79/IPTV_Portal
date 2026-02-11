@@ -2,8 +2,15 @@ import { useState } from "react";
 import MainLayout from "../components/layout/MainLayout";
 import LoginForm from "../components/login/LoginForm";
 import { useLogin } from "../hooks/useLogin";
+import { Navigate } from "react-router-dom";
+import { useGuest } from "../hooks/useGuest";
 
 function LoginPage() {
+  const { guest } = useGuest();
+  if (guest) {
+    return <Navigate to="/Home" replace />;
+  }
+
   const { login, loading } = useLogin();
 
   const [formData, setFormData] = useState({

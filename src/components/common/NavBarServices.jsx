@@ -1,18 +1,17 @@
 import { NavLink } from "react-router-dom";
-import { FaTv, FaFilm, FaChromecast, FaLanguage, FaConciergeBell, FaSignOutAlt } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaUtensils, FaSpa, FaFileInvoiceDollar, FaCloudSun } from "react-icons/fa";
 
 const items = [
-  { to: "/TV", icon: <FaTv />, label: "TV" },
-  { to: "/VoD", icon: <FaFilm />, label: "VoD" },
-  { to: "/Cast", icon: <FaChromecast />, label: "Cast" },
-  { to: "/Language", icon: <FaLanguage />, label: "Language" },
-  { to: "/Services", icon: <FaConciergeBell />, label: "Services" },
-  { to: "/Check-Out", icon: <FaSignOutAlt />, label: "Check-Out" },
+  { to: "/Home", icon: <FaHome />, label: "Home" },
+  { to: "/Services/HotelInfo", icon: <FaInfoCircle />, label: "Info" },
+  { to: "/Services/Restaurant", icon: <FaUtensils />, label: "Restaurant" },
+  { to: "/Services/Spa", icon: <FaSpa />, label: "Spa" },
+  { to: "/Services/Bill", icon: <FaFileInvoiceDollar />, label: "Bill" },
+  { to: "/Services/Weather", icon: <FaCloudSun />, label: "Weather" },
 ];
 
-export default function NavBar() {
+export default function NavBarServices() {
   return (
-    // <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-black bg-opacity-70 rounded-xl flex overflow-hidden">
     <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md rounded-2xl px-6 py-4 flex gap-6 shadow-xl">
       {items.map((item) => (
         <NavLink
