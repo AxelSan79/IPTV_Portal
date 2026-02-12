@@ -1,13 +1,13 @@
 import MainLayout from "../components/layout/MainLayout";
-import Logo from "../components/home/Logo";
 import WelcomePanel from "../components/home/WelcomePanel";
 import QRPanel from "../components/home/QRPanel";
 import NavBar from "../components/common/NavBar";
+import TopBar from "../components/common/TopBar";
 
 export default function HomePage() {
   return (
     <MainLayout>
-      <Logo />
+      <TopBar />
 
       <div className="flex h-full items-center justify-between px-20">
         {/* Welcome */}
