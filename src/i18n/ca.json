@@ -1,0 +1,15 @@
+{
+  "bill": {
+    "previewTitle": "Compte provisional",
+    "invoiceNumber": "Referència",
+    "user": "Usuari",
+    "date": "Data",
+    "roomStay": "Estancia habitació",
+    "nights": "Nits",
+    "rentalConcept": "Lloguer pel.lícula",
+    "totalMovies": "Total pel.lícules",
+    "totalNights": "Total nits",
+    "totalAmount": "TOTAL",
+    "noGuest": "No hi ha hoste"
+  }
+}

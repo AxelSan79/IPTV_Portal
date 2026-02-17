@@ -1,0 +1,15 @@
+{
+  "bill": {
+    "previewTitle": "Provissional Bill",
+    "invoiceNumber": "Reference",
+    "user": "User",
+    "date": "Date",
+    "roomStay": "Room Stay",
+    "nights": "Nights",
+    "rentalConcept": "Movie Rental",
+    "totalMovies": "Total Movies",
+    "totalNights": "Total Nights",
+    "totalAmount": "TOTAL",
+    "noGuest": "No Host"
+  }
+}

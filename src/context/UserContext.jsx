@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import i18n from "../i18n";
 
 // Context
 const UserContext = createContext();
@@ -7,18 +8,16 @@ const UserContext = createContext();
 export function UserProvider({ children }) {
   const [guest, setGuest] = useState(null);
   const [vodPurchases, setVodPurchases] = useState([]);
-  const [language, setLanguage] = useState(navigator.language.slice(0,2)); // default browser
+  const NIGHT_PRICE = 80;
 
   // Retrieve data form localStorage
   useEffect(() => {
     const storedGuest = localStorage.getItem("guest");
     const storedVod = localStorage.getItem("vodPurchases");
-    const storedLang = localStorage.getItem("language");
 
     if (storedGuest) setGuest(JSON.parse(storedGuest));
     if (storedVod) setVodPurchases(JSON.parse(storedVod));
-    if (storedLang) setLanguage(storedLang);
-  }, []);
+    }, []);
 
   // Save guest in state + localStorage
   const saveGuest = (data) => {
@@ -44,15 +43,14 @@ export function UserProvider({ children }) {
 
   // Set language
   const changeLanguage = (lang) => {
-    setLanguage(lang);
-    localStorage.setItem("language", lang);
+    i18n.changeLanguage(lang);
   };
 
   // Bill
   const getBill = () => {
     if (!guest) return null;
 
-    const nightsPrice = (guest.nights || 0) * 80;
+    const nightsPrice = (guest.nights || 0) * NIGHT_PRICE;
 
     const vodTotal = vodPurchases.reduce((acc, v) => acc + v.price, 0);
 
@@ -65,12 +63,15 @@ export function UserProvider({ children }) {
     };
   };
 
+  const checkOut = () => {
+    const finalInvoice = getBill();
+  };
+
   return (
     <UserContext.Provider
       value={{
         guest,
         vodPurchases,
-        language,
         saveGuest,
         clearGuest,
         addVodPurchase,

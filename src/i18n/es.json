@@ -1,0 +1,15 @@
+{
+  "bill": {
+    "previewTitle": "Vista de cuenta provisional",
+    "invoiceNumber": "Referencia",
+    "user": "Usuario",
+    "date": "Fecha",
+    "roomStay": "Estancia habitación",
+    "nights": "noches",
+    "rentalConcept": "Alquiler película",
+    "totalMovies": "Total películas",
+    "totalNights": "Total noches",
+    "totalAmount": "TOTAL",
+    "noGuest": "No hay huésped activo"
+  }
+}
