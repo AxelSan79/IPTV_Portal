@@ -49,7 +49,7 @@ router.post("/", async (req, res) => {
 
     const insertQuery = `
       INSERT INTO invoices
-      (invoice_number, firstName, lastName, email, room, checkIn, checkOut, nights, treatment, vodPurchases, bill, i18nextLng)
+      (invoice_number, first_name, last_name, email, room, check_in, check_out, nights, treatment, vod_purchases, bill, i18next_lng)
       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
       RETURNING invoice_number
     `;
