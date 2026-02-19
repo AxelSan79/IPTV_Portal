@@ -2,9 +2,11 @@ import { useMemo } from "react";
 import { useGuest } from "../../context/UserContext";
 import { useTranslation } from "react-i18next";
 
-function Invoice({ mode = "preview" }) {
+function Invoice({ mode = "preview", billData }) {
   const { t } = useTranslation();
-  const { bill } = useGuest();
+  //const { bill } = useGuest();
+  const { bill: contextBill } = useGuest();
+  const bill = billData || contextBill;
 
   const today = new Date().toLocaleDateString("es-ES");
 
@@ -16,7 +18,8 @@ function Invoice({ mode = "preview" }) {
 
   const referenceNumber = useMemo(() => {
     if (mode === "final") {
-      return bill?.invoiceNumber || `INV-${Date.now()}`;
+      // return bill?.invoiceNumber || `INV-${Date.now()}`;
+      return bill?.invoiceNumber;
     }
       return "PREVIEW";
     }, [mode, bill]);

@@ -14,7 +14,7 @@ function LoginPage() {
   const { login, loading } = useLogin();
 
   const [formData, setFormData] = useState({
-    treatment: "Mr.",
+    treatment: "mr",
     firstName: "",
     lastName: "",
     email: "",

@@ -8,42 +8,48 @@ import { useGuest } from "../context/UserContext";
 import { useTranslation } from "react-i18next";
 import CheckOutButton from "../components/common/CheckOutButton";
 
-function CheckOutPage() {
+export default function CheckOutPage() {
   const { t } = useTranslation();
   const { getBill, clearGuest } = useGuest();
   const [modalOpen, setModalOpen] = useState(false);
   const [finalInvoice, setFinalInvoice] = useState(null);
+  const [checkedOut, setCheckedOut] = useState(false); // <-- nuevo estado
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const bill = getBill();
 
   const handleConfirmCheckOut = async () => {
-    try {
-      const res = await fetch(`${backendUrl}/checkout`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          guest: bill.guest,
-          vodPurchases: bill.vodPurchases,
-          bill,
-          i18nextLng: localStorage.getItem("i18nextLng"),
-        }),
-      });
+  try {
+    // POST a backend /checkout
+    const res = await fetch(`${backendUrl}/checkout`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        guest: bill.guest,
+        vodPurchases: bill.vodPurchases,
+        bill,
+        i18nextLng: localStorage.getItem("i18nextLng"),
+      }),
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      // Activamos factura final
-      setFinalInvoice({ ...bill, invoiceNumber: data.invoice_number });
+    // Guardamos la factura final en pantalla
+    setFinalInvoice({ ...bill, invoiceNumber: data.invoice_number });
 
-      setModalOpen(false);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    // Eliminamos guest de inmediato para que ya no pueda navegar
+    clearGuest();
+
+    // Cerramos modal
+    setModalOpen(false);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 
   const handleExit = () => {
-    clearGuest();
-    window.location.href = "/";
+    window.location.href = "/"; // vuelve al login/home
   };
 
   return (
@@ -54,7 +60,7 @@ function CheckOutPage() {
 
         <div className="flex flex-col md:flex-row gap-10">
 
-          {/* Factura */}
+          {/* Factura provisional / definitiva */}
           <div className="flex-1">
             <Invoice 
               mode={finalInvoice ? "final" : "preview"}
@@ -62,7 +68,7 @@ function CheckOutPage() {
             />
           </div>
 
-          {/* Botón */}
+          {/* Botón de check out / exit */}
           <div className="flex flex-col items-center justify-center">
             {!finalInvoice ? (
               <CheckOutButton
@@ -79,14 +85,15 @@ function CheckOutPage() {
           </div>
         </div>
 
-        {/* Home & Back SOLO si NO es factura final */}
-        {!finalInvoice && (
+        {/* Home & Back se ocultan si ya se hizo check-out */}
+        {!checkedOut && (
           <div className="flex gap-4 mt-6">
             <HomeButton />
             <BackButton />
           </div>
         )}
 
+        {/* Modal de confirmación */}
         <ConfirmModal
           isOpen={modalOpen}
           title={t("bill.checkOut")}
@@ -100,6 +107,3 @@ function CheckOutPage() {
     </MainLayout>
   );
 }
-
-export default CheckOutPage;
-

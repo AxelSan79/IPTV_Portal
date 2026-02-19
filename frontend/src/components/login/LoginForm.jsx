@@ -12,7 +12,7 @@ export default function LoginForm({
   if (loading) {
     return <h2 className="text-xl text-center">Loading portal...</h2>;
   }
-
+  
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <h2 className="text-2xl font-bold text-center mb-4">

@@ -10,6 +10,11 @@
     "totalMovies": "Total películas",
     "totalNights": "Total noches",
     "totalAmount": "TOTAL",
-    "noGuest": "No hay huésped activo"
+    "noGuest": "No hay huésped activo",
+    "checkOut": "Check Out",
+    "confirmCheckOut": "¿Desea confirmar el check-out y generar la factura?",
+    "yes": "Sí",
+    "no": "No",
+    "exit": "Salir"
   }
 }

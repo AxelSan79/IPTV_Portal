@@ -1,5 +1,5 @@
 import express from "express";
-import pg from "pg";
+// import pg from "pg";
 import dotenv from "dotenv";
 import { pool } from "../db/db.js";
 import { generateInvoiceNumber } from "../models/invoice.js";
@@ -7,6 +7,7 @@ import { generateInvoiceNumber } from "../models/invoice.js";
 dotenv.config();
 const router = express.Router();
 
+/*
 // Config DB
 const pool = new pg.Pool({
   host: "localhost",
@@ -15,6 +16,7 @@ const pool = new pg.Pool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
 });
+*/
 
 async function getNextInvoiceNumber() {
   const res = await pool.query(
@@ -76,9 +78,10 @@ router.post("/", async (req, res) => {
       invoice_number: result.rows[0].invoice_number
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Server error" });
-  }
+      console.error("Error en checkout:", err.message);
+      console.error(err.stack);
+      res.status(500).json({ error: err.message });
+    }
 });
 
 export default router;
