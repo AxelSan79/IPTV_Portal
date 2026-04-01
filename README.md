@@ -1,16 +1,58 @@
-# React + Vite
+# IPTV Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal project to build an IPTV platform from scratch, inspired by real-world systems I have worked with professionally.
 
-Currently, two official plugins are available:
+The goal is not only to recreate a user-facing portal, but to understand how an IPTV solution works end-to-end — from content management and UI to delivery and playback.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Purpose
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project is part of my transition towards multimedia solution design, where I combine my experience in IPTV systems with hands-on development.
 
-## Expanding the ESLint configuration
+Rather than focusing on a single layer, I’m exploring how different parts of the system connect:
+- How content is structured and presented  
+- How users interact with media platforms  
+- How content is delivered and consumed  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ Tech Stack
+
+This project is also a learning ground for modern development tools:
+
+- **Frontend**: React, Vite, Tailwind  
+- **Backend**: Node.js  
+- **Database**: PostgreSQL  
+- **Infrastructure**: Docker  
+
+---
+
+## 🧪 What I'm exploring
+
+- Building a complete IPTV-like interface from scratch  
+- Structuring and managing media content  
+- Designing user-facing experiences for TV / media platforms  
+- Connecting frontend and backend in a real use case  
+- Understanding how playback and delivery fit into the system  
+
+---
+
+## 🚧 Status
+
+Work in progress. Development is iterative and driven by learning goals, so features are added and refined over time.
+
+---
+
+## 🔮 Next steps
+
+- Improve content structure and management  
+- Expand backend capabilities  
+- Explore integration with real streaming sources  
+- Continue experimenting with media workflows  
+
+---
+
+## 💡 Context
+
+This project is closely related to my professional background in IPTV and Digital Signage systems, and reflects my interest in bridging content, user experience, and the underlying technologies behind multimedia platforms.
