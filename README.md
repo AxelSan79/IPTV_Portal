@@ -8,7 +8,7 @@ The goal is not only to recreate a user-facing portal, but to understand how an 
 
 ## 🎯 Purpose
 
-This project is part of my transition towards multimedia solution design, where I combine my experience in IPTV systems with hands-on development.
+This project is part of my transition towards a hybrid technical and multimedia solution designer, where I combine my experience in IPTV systems with hands-on development.
 
 Rather than focusing on a single layer, I’m exploring how different parts of the system connect:
 - How content is structured and presented  
